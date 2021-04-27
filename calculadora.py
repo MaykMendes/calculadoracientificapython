@@ -27,7 +27,7 @@ def dividir():
     n2 = int(input(f'{n1} ÷ '))
     divisão = n1 / n2
 
-    print(f'{n1} x {n2} = {divisão:.1f}')
+    print(f'{n1} ÷ {n2} = {divisão:.1f}')
 
 
 def equação_de_2º_grau():
