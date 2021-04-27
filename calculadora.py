@@ -50,18 +50,13 @@ def equação_de_2º_grau():
         sleep(3)
         # Calculando
         if a == 0:
-            print(
-                "\033[1;31mSeus valores não se encaixam no perfil de uma equação de segundo grau\033[m")
-            continue
+            print("\033[1;31mSeus valores não se encaixam no perfil de uma equação de segundo grau\033[m")
+            break
 
         delta = pow(b, 2) - (4*a*c)
         if delta < 0:
             print("\033[1;32mNão existe raiz!\033[m")
-            cont = str(input("Deseja realizar outra equação?[S/N]:")).upper()
-            if cont == "S":
-                continue
-            else:
-                break
+            break
 
         x = (-b) + sqrt(delta) / 2 * a
         x2 = (-b) - sqrt(delta) / 2 * a
@@ -73,14 +68,12 @@ def equação_de_2º_grau():
 
         if delta == 0:
             print(f"\033[1;32mRaiz unica: {raiz1}\033[m")
+            break
 
         elif delta > 0:
-            print(
-                f"\033[1;32mAs duas raizes A e B são respectivamente: {raiz1} e {raiz2}\033[m")
-
-        cont = str(input("Deseja realizar outra equação?[S/N]:")).upper()
-        if cont == "N":
+            print(f"\033[1;32mAs duas raizes A e B são respectivamente: {raiz1} e {raiz2}\033[m")
             break
+
 
 
 def retangulo():
