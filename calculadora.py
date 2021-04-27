@@ -1,6 +1,7 @@
 from time import sleep
 from math import sqrt
 
+
 def soma():
     n1 = int(input(': '))
     n2 = int(input(f'{n1} + '))
@@ -27,7 +28,7 @@ def dividir():
     n2 = int(input(f'{n1} ÷ '))
     divisão = n1 / n2
 
-    print(f'{n1} ÷ {n2} = {divisão:.1f}')
+    print(f'{n1} / {n2} = {divisão:.1f}')
 
 
 def equação_de_2º_grau():
@@ -49,14 +50,18 @@ def equação_de_2º_grau():
         sleep(3)
         # Calculando
         if a == 0:
-            print("\033[1;31mSeus valores não se encaixam no perfil de uma equação de segundo grau\033[m")
+            print(
+                "\033[1;31mSeus valores não se encaixam no perfil de uma equação de segundo grau\033[m")
             continue
 
-        
         delta = pow(b, 2) - (4*a*c)
         if delta < 0:
             print("\033[1;32mNão existe raiz!\033[m")
-            break
+            cont = str(input("Deseja realizar outra equação?[S/N]:")).upper()
+            if cont == "S":
+                continue
+            else:
+                break
 
         x = (-b) + sqrt(delta) / 2 * a
         x2 = (-b) - sqrt(delta) / 2 * a
@@ -64,30 +69,52 @@ def equação_de_2º_grau():
         raiz1 = x / (2 * a)
         raiz2 = x2 / (2 * a)
 
-        # Analisando o resultado e retornando a resposta 
+        # Analisando o resultado e retornando a resposta
 
         if delta == 0:
             print(f"\033[1;32mRaiz unica: {raiz1}\033[m")
-            break
 
         elif delta > 0:
-            print(f"\033[1;32mAs duas raizes A e B são respectivamente: {raiz1} e {raiz2}\033[m")
+            print(
+                f"\033[1;32mAs duas raizes A e B são respectivamente: {raiz1} e {raiz2}\033[m")
+
+        cont = str(input("Deseja realizar outra equação?[S/N]:")).upper()
+        if cont == "N":
             break
-            
-    
+
+
+def retangulo():
+    print('Formúla A = b x h')
+    c1 = int(input('b = '))
+    c2 = int(input('h = '))
+    print(f'A = {c1} m x {c2} m = {c1 * c2} m²')
+
+
+def triangulo():
+    print('Formúla A = b x h / 2')
+    c1 = int(input('b = '))
+    c2 = int(input('h = '))
+    print(f'A = {c1} m x {c2} m = {c1 * c2 / 2} m²')
+
+
+def circulo():
+    print('Formúla A = π x r²')
+    c1 = int(input('r² = '))
+    print(f'A = 3,14 x {c1}² = {3.14 * (c1 ** 2)} m²')
 
 
 # loop
 while True:
 
     # select option
-    select = input("""Select a option(number) and write below
-1 = Soma
-2 = Dimuir
-3 = Multiplicação
-4 = Divisão 
-5 = Equação de segundo grau
-Sua escolha >> """)
+    select = input("""Escolha qual conta deseja fazer
+    1 = Soma
+    2 = Subtração
+    3 = Multiplicação
+    4 = Divisão
+    5 = Equação de Segundo Grau
+    6 = Cálculos de Áreas
+    Sua escolha >> """)
 
     if select == '1':
         soma()
@@ -97,7 +124,6 @@ Sua escolha >> """)
             continue
         else:
             break
-    
 
     elif select == '2':
         subtrair()
@@ -108,7 +134,6 @@ Sua escolha >> """)
         else:
             break
 
-
     elif select == '3':
         multiplicar()
 
@@ -117,7 +142,6 @@ Sua escolha >> """)
             continue
         else:
             break
-
 
     elif select == '4':
         dividir()
@@ -128,7 +152,6 @@ Sua escolha >> """)
         else:
             break
 
-
     elif select == '5':
         equação_de_2º_grau()
 
@@ -137,3 +160,40 @@ Sua escolha >> """)
             continue
         else:
             break
+
+    elif select == '6':
+        select2 = input('''Escolha qual cálculo de área deseja fazer
+       1 = Área de rentângulo
+       2 = Área de Triângulo
+       3 = Área do Circulo
+       Sua escolha >> ''')
+
+        if select2 == '1':
+            retangulo()
+
+            cont = input("Deseja realizar outra operação?[S/N]:").upper()
+            if cont == 'S':
+                continue
+            else:
+                break
+
+        elif select2 == '2':
+            triangulo()
+
+            cont = input("Deseja realizar outra operação?[S/N]:").upper()
+            if cont == 'S':
+                continue
+            else:
+                break
+
+        elif select2 == '3':
+            circulo()
+
+            cont = input("Deseja realizar outra operação?[S/N]:").upper()
+            if cont == 'S':
+                continue
+            else:
+                break
+
+    else:
+        print('Caractere não reconhecida, tente novamente!')
