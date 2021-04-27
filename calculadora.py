@@ -101,6 +101,18 @@ def circulo():
     print('Formúla A = π x r²')
     c1 = int(input('r² = '))
     print(f'A = 3,14 x {c1}² = {3.14 * (c1 ** 2)} m²')
+    
+
+def juros_simples():
+    c = float(input("Capital emprestado R$: "))
+    i = float(input("Taxa de juros do periodo: "))
+    t = float(input("Tempo(meses): "))
+
+    J = (c * i * t) / 100
+
+    print(f"O valor dos juros será de R${J:.2f}")
+    print(f"O total do montante é de R${c + J:.2f}")
+
 
 
 # loop
@@ -114,6 +126,7 @@ while True:
     4 = Divisão
     5 = Equação de Segundo Grau
     6 = Cálculos de Áreas
+    7 = Cálculo de Juros simples
     Sua escolha >> """)
 
     if select == '1':
@@ -195,5 +208,14 @@ while True:
             else:
                 break
 
-    else:
-        print('Caractere não reconhecida, tente novamente!')
+        else:
+            print('Caractere não reconhecida, tente novamente!')
+                
+    elif select == '7':
+        juros_simples()
+        
+        cont = input("Deseja realizar outra operação?[S/N]:").upper()
+        if cont == 'S':
+            continue
+        else:
+            break
